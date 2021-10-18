@@ -1,0 +1,26 @@
+<h1>Users</h1>
+<user-prj-users-tab-bar [actualView]="isCardView" (toggleCardView)="isCardView = $event"
+    (showUserModal)="showUserModal = true"></user-prj-users-tab-bar>
+
+<div class="d-flex mt-5" *ngIf="isCardView">
+    <ng-container *ngIf="users.length">
+        <user-prj-users-card-view *ngFor="let user of users" [user]="user"
+            (selectedUser)="selectedUser = $event; showOrdersModal = true" (deleteUser)="deleteUser($event)"
+            (editUser)="selectedUser = $event; showUserModal = true">
+        </user-prj-users-card-view>
+    </ng-container>
+
+    <p *ngIf="!users.length">Non ci sono utenti</p>
+</div>
+
+<div class="mb-5" *ngIf="!isCardView">
+    <user-prj-users-list-view [users]="users" (selectedUser)="selectedUser = $event; showOrdersModal = true">
+    </user-prj-users-list-view>
+</div>
+
+<user-prj-users-orders *ngIf="showOrdersModal" [user]="selectedUser" (closeModal)="closeModals()">
+</user-prj-users-orders>
+
+<user-prj-users-edit *ngIf="showUserModal" [user]="selectedUser" (closeUserModal)="closeModals()"
+    (savedUser)="saveUser($event)">
+</user-prj-users-edit>

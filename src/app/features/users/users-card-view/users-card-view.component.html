@@ -1,0 +1,14 @@
+<div class="card me-4" style="width: 18rem;">
+    <img [src]="user.imageUrl" class="card-img-top" [alt]="user.name + ' image'">
+    <div class="card-body">
+        <p class="card-text">{{ user.fullName }}</p>
+        <p class="card-text">{{ user.fullLocation }}</p>
+        <p class="card-text">{{ user.orders.length }}</p>
+        <button class="btn btn-link p-0" (click)="selectedUser.emit(user)">Orders</button>
+
+        <div class="d-flex justify-content-between mt-3">
+            <button class="btn btn-primary w-50 me-3" (click)="editUser.emit(user)">Edit</button>
+            <button class="btn btn-danger w-50" (click)="deleteUser.emit(user.id)">Delete</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+.orders-modal {
+  position: absolute;
+  width: 800px;
+  height: 600px;
+  top: calc(50% - 300px);
+  left: calc(50% - 400px);
+  background-color: #fff;
+  z-index: 1020;
+  .order-box {
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 2.6px;
+  }
+}

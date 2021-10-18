@@ -1,0 +1,9 @@
+.user-modal {
+  width: 400px;
+  height: 500px;
+  position: absolute;
+  top: calc(50% - 250px);
+  left: calc(50% - 200px);
+  z-index: 1020;
+  background-color: #fff;
+}

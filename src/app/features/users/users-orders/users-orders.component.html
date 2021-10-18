@@ -1,0 +1,27 @@
+<div class="overlay" (click)="closeModal.emit()"></div>
+<div class="orders-modal p-5">
+    <h2>Orders</h2>
+    <div class="d-flex justify-content-between mt-4">
+        <div class="d-flex w-50">
+            <h5 class="col">Product</h5>
+            <h5 class="px-4 col">Date</h5>
+            <h5 class="col">Quantity</h5>
+        </div>
+
+        <h5>Total</h5>
+    </div>
+    <div class="d-flex justify-content-between align-items-center px-2 order-box mt-4"
+        *ngFor="let order of user.orders">
+        <div class="d-flex w-50">
+            <p class="col">{{ order.product.name }}</p>
+            <p class="px-4 col">{{ order.date | date: 'dd-MM-YYYY' }}</p>
+            <p class="col">{{ order.quantity }}</p>
+        </div>
+
+        <p>{{ order.product.price * order.quantity}} €</p>
+    </div>
+
+    <div class="d-flex justify-content-end mt-4">
+        <p>{{ total }} €</p>
+    </div>
+</div>
